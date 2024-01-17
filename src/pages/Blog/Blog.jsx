@@ -28,17 +28,28 @@ const Blog = () => {
           </p>
         </div>
 
-        
+
 
         <div className="bg-slate-100 p-10 mb-6 rounded-lg mx-6 mt-6">
           <h5 className="text-gray-600 text-4xl font-bold mb-6">
-          How to validate React props using PropTypes?
+          Compare SQL and NoSQL databases?
           </h5>
           <p className="text-justify">
-          React is a JavaScript library used for building user interfaces, and
-            it provides a way to validate component props using PropTypes.
-            PropTypes is a typechecking library that allows developers to define
-            the expected data types and values of component props.
+          <h2 className='text-3xl'>SQL Databases:</h2>
+          <ol>
+            <li>Relational, structured data.</li>
+            <li>Fixed schema.</li>
+            <li>ACID properties.</li>
+            <li>Examples: MySQL, PostgreSQL.</li>
+          </ol>
+          <br />
+          <h2 className='text-3xl'>NoSQL Databases:</h2>
+          <ol>
+            <li>Non-relational, unstructured data.</li>
+            <li>Dynamic schema.</li>
+            <li>Often better for horizontal scaling.</li>
+            <li>Examples: MongoDB, Cassandra.</li>
+          </ol>
           </p>
          
          </div>
