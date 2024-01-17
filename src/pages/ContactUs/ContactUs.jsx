@@ -2,7 +2,14 @@ import React from 'react';
 
 const ContactUs = () => {
 
-  
+  const handleSendMessage= (event)=>{
+      event.preventDefault();
+      const name=event.target.name.value;
+      const email=event.target.email.value;
+      const message= event.target.message.value;
+      event.target.reset()
+      console.log(name,email,message)
+  }
 
 
     return (
@@ -15,26 +22,26 @@ const ContactUs = () => {
       <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
     </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form className="card-body">
+      <form onSubmit={handleSendMessage} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Your Name</span>
           </label>
-          <input type="text" placeholder="name" className="input input-bordered" required />
+          <input type="text" name='name' placeholder="name" className="input input-bordered" required />
         </div>
 
         <div className="form-control">
           <label className="label">
             <span className="label-text">Your Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
+          <input type="email" name='email' placeholder="email" className="input input-bordered" required />
         </div>
 
         <div className="form-control">
           <label className="label">
             <span className="label-text">Write Message</span>
           </label>
-          <input type="text" placeholder="message" className="input input-bordered"  />
+          <input type="text" name='message' placeholder="message" className="input input-bordered"  />
           
         </div>
         <div className="form-control mt-6">
