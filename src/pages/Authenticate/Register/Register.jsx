@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Register = () => {
 
     const [error,setError] = useState('');
   const [success, setSuccess] = useState ('');
   const [show, setShow] = useState(false);
+
+  const {createUser} = useContext(AuthContext)
 
   const handleSignUp= (event)=>{
     event.preventDefault();
@@ -22,6 +25,24 @@ const Register = () => {
         setError('PassWord Must Be 6 Character or longer');
         return;
       }
+
+      createUser (email,password)
+      .then( (result) =>{
+
+       const loggedUser= result.user;
+       console.log(loggedUser);
+      // userProfileUpdate(name,photo);
+       setSuccess('congratulations!! Registration Successfully Completed')
+       setError('')
+       event.target.reset()
+
+      } )
+
+      .catch( error =>{
+          console.log(error)
+          setError(error.message)
+          setSuccess(' ')
+      } )
 
   }
 

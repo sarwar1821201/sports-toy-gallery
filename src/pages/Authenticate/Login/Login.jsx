@@ -9,7 +9,7 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState ('');
     const [error,setError] = useState('');
-//const {signIn}= useContext(AuthContext)
+const {signIn}= useContext(AuthContext)
  
    const handleLogin= (event) =>{
     event.preventDefault();
@@ -25,23 +25,23 @@ const Login = () => {
         return;
       }
 
-    //   signIn(email,password)
-    //       .then( (result) =>{
+      signIn(email,password)
+          .then( (result) =>{
             
-    //         const loggedUser= result.user;
-    //         console.log(loggedUser)
-    //         setSuccess('congratulation!! user successfully login')
-    //         setError('')
-    //         event.target.reset ();
-    //       // navigate(from ,{replace: true})
+            const loggedUser= result.user;
+            console.log(loggedUser)
+            setSuccess('congratulation!! user successfully login')
+            setError('')
+            event.target.reset ();
+          // navigate(from ,{replace: true})
 
-    //       })
+          })
 
-    //       .catch( (error)=>{
-    //          console.log(error.message)
-    //          setError(' sorry!! user name or password do not match')
-    //          setSuccess('')
-    //       })
+          .catch( (error)=>{
+             console.log(error.message)
+             setError(' sorry!! user name or password do not match')
+             setSuccess('')
+          })
 
 
    }
