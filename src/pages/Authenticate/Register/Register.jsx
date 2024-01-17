@@ -55,20 +55,20 @@ const Register = () => {
           <input type="email" name='email' placeholder="enter your email" className="input input-bordered" required />
         </div>
 
-        <div className="form-control">
+        {/* <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
           <input type="password" name='password' placeholder="enter your password" className="input input-bordered" required />
 
-          </div>
+          </div> */}
 
-        {/* <div className="form-control">
+        <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
           <input type={show? 'text' : 'password'} name='password' placeholder="password" className="input input-bordered" required />
-        </div> */}
+        </div>
 
         <div className="form-control">
           <label className="label">
@@ -77,7 +77,12 @@ const Register = () => {
           <input type="text" name='photo' placeholder="photo url" className="input input-bordered"  />
         </div>
 
-      
+        <p className='mt-2' onClick={()=> setShow(!show) } > 
+         
+         {
+                 show ?  <h5>Hide Password</h5> : <h5>Show Password</h5>
+             }
+       </p>
 
 
         <div className="form-control mt-2">
