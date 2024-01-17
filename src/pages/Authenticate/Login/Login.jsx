@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+    const [show, setShow] = useState(false);
+
+   const handleLogin= (event) =>{
+    event.preventDefault();
+    const email= event.target.email.value;
+    const password= event.target.password.value;
+
+    console.log(email,password)
+   }
+
+
     return (
         <div>
             <h2>Please Login</h2>
@@ -13,7 +25,7 @@ const Login = () => {
     </div>
 
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form className="card-body"   >
+      <form className="card-body" onSubmit={handleLogin}  >
 
         <div className="form-control">
           <label className="label">
@@ -26,17 +38,17 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name='password' placeholder="enter your password" className="input input-bordered" required />
-          {/* <input type={show? 'text' : 'password'} name='password' placeholder="password" className="input input-bordered" required /> */}
+         
+          <input type={show? 'text' : 'password'} name='password' placeholder="password" className="input input-bordered" required />
           {/* <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label> */}
-          {/* <p className='mt-2' onClick={()=> setShow(!show) } > 
+          <p className='mt-2' onClick={()=> setShow(!show) } > 
          
             {
                     show ?  <h5>Hide Password</h5> : <h5>Show Password</h5>
                 }
-          </p> */}
+          </p>
 
         </div>
 
