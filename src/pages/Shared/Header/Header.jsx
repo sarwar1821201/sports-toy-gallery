@@ -50,7 +50,11 @@ const Header = () => {
       </ul>
     </div>
     {/* <Link to='/' className="btn btn-ghost text-xl">  <img src='' alt="hello" srcset="" /> </Link> */}
-    
+    <Link to='/' className='inline-flex items-center'>
+            <img className='h-12 w-12 rounded-full'  src="https://i.ibb.co/MMYZdMq/photo-1540747913346-19e32dc3e97e-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg" alt="" />
+             {/* <BoltIcon className='h-7 w-7 text-blue-500'></BoltIcon> */}
+            <span className='ml-2 text-xl font-bold tracking-wide text-gray-800'> <Link to='/' >Sports Gallery</Link>  </span>
+        </Link>
 
   </div>
   <div className="navbar-center hidden lg:flex">
