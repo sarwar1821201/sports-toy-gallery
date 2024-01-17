@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Login = () => {
 
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState ('');
     const [error,setError] = useState('');
-
-
+    const {signIn}= useContext(AuthContext)
+ 
    const handleLogin= (event) =>{
     event.preventDefault();
     const email= event.target.email.value;
@@ -22,7 +23,23 @@ const Login = () => {
         return;
       }
 
+      signIn(email,password)
+          .then( (result) =>{
+            
+            const loggedUser= result.user;
+            console.log(loggedUser)
+            setSuccess('congratulation!! user successfully login')
+            setError('')
+            event.target.reset ();
+          // navigate(from ,{replace: true})
 
+          })
+
+          .catch( (error)=>{
+             console.log(error.message)
+             setError(' sorry!! user name or password do not match')
+             setSuccess('')
+          })
 
 
    }
