@@ -2,7 +2,8 @@ import React from 'react';
 
 const BannerSection = () => {
     return (
-        <div>
+        <div className='bg-cyan-100'>
+            <h2 className='text-center text-3xl mb-3 mt-2' >Warm Welcome To Our Sports Arena</h2>
             <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img src="https://i.ibb.co/gFcMtLk/photo-1517649763962-0c623066013b-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg" className="w-full" />
