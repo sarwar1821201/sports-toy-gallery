@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 const Login = () => {
 
     const [show, setShow] = useState(false);
+    const [success, setSuccess] = useState ('');
+    const [error,setError] = useState('');
+
 
    const handleLogin= (event) =>{
     event.preventDefault();
@@ -11,6 +14,17 @@ const Login = () => {
     const password= event.target.password.value;
 
     console.log(email,password)
+    setError('')
+    setSuccess('')
+
+    if (password.length < 6) {
+        setError('PassWord Must Be 6 Character or longer');
+        return;
+      }
+
+
+
+
    }
 
 
@@ -57,8 +71,8 @@ const Login = () => {
         </div>
       </form>
        
-      {/* <p className='mt-2 mb-3 text-red-700' > {success} </p>
-      <p className='mt-2 mb-3 text-red-700' > {error} </p> */}
+      <p className='mt-2 mb-3 text-red-700' > {success} </p>
+      <p className='mt-2 mb-3 text-red-700' > {error} </p>
 
       {/* link register */}
       <Link to='/register' >
