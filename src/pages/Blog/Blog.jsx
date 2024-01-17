@@ -56,42 +56,33 @@ const Blog = () => {
 
          <div className="bg-slate-100 p-10 mb-6 rounded-lg mx-6 mt-6">
           <h5 className="text-gray-600 text-4xl font-bold mb-6">
-          Tell us the difference between nodejs and express js.
+          What is express js? What is Nest JS ?
           </h5>
           <p className="text-justify">
-            <h3 className='text-yellow-700 text-3xl'>Node.js:</h3>
-            Description: Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows you to run JavaScript on the server side, outside of a web browser.
-            <br />
-            <ul > <span className='text-yellow-700 text-3xl'> Features:</span> 
-                <li>Asynchronous and event-driven: Node.js uses an event-driven, non-blocking I/O model, which makes it efficient and well-suited for handling concurrent connections.</li>
-                <li>Single-threaded: Although Node.js is single-threaded, it can handle concurrent operations efficiently through events and callbacks.</li>
-                <li>Large module ecosystem: Node.js has a vast ecosystem of open-source libraries and packages available through npm (Node Package Manager).</li>
-            </ul>
-              <br />
             <h3 className='text-yellow-700 text-3xl'>Express js:</h3>
-            Description: Express.js is a web application framework for Node.js. It simplifies the process of building robust, scalable, and maintainable web applications by providing a set of features for web and mobile applications.
+            
+            <ol > 
+                <li>Express.js is a minimal and flexible Node.js web application framework.</li>
+                <li>It simplifies the process of building robust and scalable web applications and APIs</li>
+                <li>It provides a set of features for web and mobile application development.</li>
+            </ol>
+              <br />
+            <h3 className='text-yellow-700 text-3xl'>Nest js:</h3>
+           
 
-            <ul > <span className='text-yellow-700 text-3xl'> Features:</span> 
-            <li>Middleware: Express.js uses middleware functions that have access to the request and response objects. Middleware functions can perform tasks such as authentication, logging, and more.</li>
-            <li>Routing: Express.js provides a simple and effective way to define routes for handling HTTP requests.</li>
-            <li>Template engines: Express.js supports various template engines, like EJS, Pug, and Handlebars, making it flexible for rendering dynamic content on the server side.</li>
+            <ol > 
+            <li>NestJS is a full-featured, extensible Node.js framework for building scalable and maintainable server-side applications.</li>
+            <li>It is built on top of Express.js and adds an additional layer of abstraction using TypeScript.</li>
+            <li>NestJS is designed with a modular architecture, making it suitable for building complex and scalable applications.</li>
 
-            </ul>
+            </ol>
 
           </p>
          
          </div>
 
          
-        <div className="bg-slate-100 p-10 mb-6 rounded-lg mx-6 mt-6">
-          <h5 className="text-gray-600 text-4xl font-bold mb-6">
-          What is a custom hook, and why will you create a custom hook?
-          </h5>
-          <p className="text-justify">
-          A custom hook in React is a JavaScript function whose name starts with "use" and that may call other hooks. Custom hooks allow you to reuse stateful logic across multiple components in a React application. They are a way to extract component logic into a reusable function, enabling better code organization, sharing of logic, and creating more maintainable and modular components.
-          </p>
-         
-         </div>
+       
         </div>
     );
 };
