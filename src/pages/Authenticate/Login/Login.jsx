@@ -9,7 +9,7 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState ('');
     const [error,setError] = useState('');
-const {signIn}= useContext(AuthContext)
+const {signIn, signInWithGoogle}= useContext(AuthContext)
  
    const handleLogin= (event) =>{
     event.preventDefault();
@@ -44,6 +44,22 @@ const {signIn}= useContext(AuthContext)
           })
 
 
+   }
+
+   const handleGoogleSignIn=() =>{
+    console.log('google diye login koro')
+    signInWithGoogle()
+    .then( (result) => {
+      const user= result.user;
+      console.log(user)
+      setSuccess('congratulations!!  user successfully login by google')
+     // navigate(from ,{replace: true})
+
+    } )
+    .catch( (error) => {
+     console.log('error' ,  error.message)
+    } );
+    
    }
 
 
@@ -99,7 +115,7 @@ const {signIn}= useContext(AuthContext)
       </Link>
 
    {/* //sign in with FcGoogle */}
-   <button className="btn btn-link m-2 mb-2">  <FaGoogle></FaGoogle> Sign in With Google  </button>
+   <button onClick={handleGoogleSignIn} className="btn btn-link m-2 mb-2">  <FaGoogle></FaGoogle> Sign in With Google  </button>
    
 
 
