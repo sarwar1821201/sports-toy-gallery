@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
+
 
 const Login = () => {
 
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState ('');
     const [error,setError] = useState('');
-    const {signIn}= useContext(AuthContext)
+//const {signIn}= useContext(AuthContext)
  
    const handleLogin= (event) =>{
     event.preventDefault();
@@ -23,23 +25,23 @@ const Login = () => {
         return;
       }
 
-      signIn(email,password)
-          .then( (result) =>{
+    //   signIn(email,password)
+    //       .then( (result) =>{
             
-            const loggedUser= result.user;
-            console.log(loggedUser)
-            setSuccess('congratulation!! user successfully login')
-            setError('')
-            event.target.reset ();
-          // navigate(from ,{replace: true})
+    //         const loggedUser= result.user;
+    //         console.log(loggedUser)
+    //         setSuccess('congratulation!! user successfully login')
+    //         setError('')
+    //         event.target.reset ();
+    //       // navigate(from ,{replace: true})
 
-          })
+    //       })
 
-          .catch( (error)=>{
-             console.log(error.message)
-             setError(' sorry!! user name or password do not match')
-             setSuccess('')
-          })
+    //       .catch( (error)=>{
+    //          console.log(error.message)
+    //          setError(' sorry!! user name or password do not match')
+    //          setSuccess('')
+    //       })
 
 
    }
@@ -97,8 +99,8 @@ const Login = () => {
       </Link>
 
    {/* //sign in with FcGoogle */}
-   {/* <button onClick={handleGoogleSignIn} className="btn btn-link m-2 mb-2">  <FcGoogle></FcGoogle> Sign in With Google  </button>
-   <button onClick={handleGithubSignIn} className="btn btn-link m-2 mb-2">  <FaGithubSquare></FaGithubSquare> Sign in With Git-Hub </button> */}
+   <button className="btn btn-link m-2 mb-2">  <FaGoogle></FaGoogle> Sign in With Google  </button>
+   
 
 
     </div>
