@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+    const [error,setError] = useState('');
+  const [success, setSuccess] = useState ('');
+  const [show, setShow] = useState(false);
+
+  const handleSignUp= (event)=>{
+    event.preventDefault();
+    const name= event.target.name.value;
+    const email= event.target.email.value;
+    const password= event.target.password.value;
+    const photo= event.target.photo.value;
+    console.log(name,email,password)
+
+    setError('')
+    setSuccess('')
+
+    if (password.length < 6) {
+        setError('PassWord Must Be 6 Character or longer');
+        return;
+      }
+
+  }
+
+
+
+
     return (
         <div>
             <h2>Please Register</h2>
@@ -13,7 +39,7 @@ const Register = () => {
 
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
-      <form className="card-body"    >
+      <form className="card-body"  onSubmit={handleSignUp}  >
 
       <div className="form-control">
           <label className="label">
@@ -51,12 +77,7 @@ const Register = () => {
           <input type="text" name='photo' placeholder="photo url" className="input input-bordered"  />
         </div>
 
-         {/* <p className='mt-2' onClick={()=> setShow(!show) } > 
-         
-         {
-                 show ?  <h5>Hide Password</h5> : <h5>Show Password</h5>
-             }
-       </p> */}
+      
 
 
         <div className="form-control mt-2">
@@ -64,8 +85,8 @@ const Register = () => {
         </div>
       </form>
 
-        {/* <p className='mt-2 mb-3 text-red-700' >  {error} </p>
-        <p className='mt-2 mb-3 text-red-700' > {success} </p> */}
+        <p className='mt-2 mb-3 text-red-700' >  {error} </p>
+        <p className='mt-2 mb-3 text-red-700' > {success} </p>
 
            {/* link login */}
            <Link to='/login' >
