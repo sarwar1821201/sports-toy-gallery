@@ -48,7 +48,7 @@ const AddToy = () => {
        
        <label className="input-group" >
          {/* <span>Name</span> */}
-         <input type="text" placeholder="Seller Name" name="seller" className="input input-bordered w-full " />
+         <input type="text" value={user?.displayName}  className="input input-bordered w-full " />
        </label>
 
      </div>

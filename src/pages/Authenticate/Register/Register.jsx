@@ -8,7 +8,7 @@ const Register = () => {
   const [success, setSuccess] = useState ('');
   const [show, setShow] = useState(false);
 
-  const {createUser} = useContext(AuthContext)
+  const {createUser, userProfileUpdate } = useContext(AuthContext)
 
   const handleSignUp= (event)=>{
     event.preventDefault();
@@ -31,7 +31,7 @@ const Register = () => {
 
        const loggedUser= result.user;
        console.log(loggedUser);
-      // userProfileUpdate(name,photo);
+       userProfileUpdate(name,photo);
        setSuccess('congratulations!! Registration Successfully Completed')
        setError('')
        event.target.reset()

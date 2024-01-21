@@ -85,7 +85,16 @@ const Header = () => {
   </div>
   <div className="navbar-end">
  {
-  user ? (<button onClick={handleLogout} className="btn btn-outline btn-warning">Logout</button> ) : ( <Link to='/login'> <button className="btn btn-outline btn-warning">Login</button>  </Link>)
+  user ? (  <div className="flex gap-2 items-center ">
+  <img
+    className="h-12 w-12 lg:h-20 lg:w-20 rounded-full "
+    src={user.photoURL ? user.photoURL : "can not loaded"}
+    data-tooltip-content={user.displayName ? user.displayName : ""}
+   
+  />
+   <button onClick={handleLogout}  className="btn bg-yellow-700" >Logout</button>
+  
+</div> )   : ( <Link to='/login'> <button className="btn btn-outline btn-warning">Login</button>  </Link>)
  }
 
   </div>
