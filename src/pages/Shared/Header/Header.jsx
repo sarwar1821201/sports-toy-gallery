@@ -30,6 +30,14 @@ const Header = () => {
         >
           Blog
         </NavLink> </li>
+        {
+          user &&   <li> <NavLink
+          to='/addToy'
+          className={({ isActive }) => (isActive ? 'active' : 'default')}
+        >
+          Add Toy
+        </NavLink> </li>
+        }
    {/* {
      user?.email ? <>  
       <li> <Link to='/bookings' >Bookings</Link> </li>
@@ -44,7 +52,7 @@ const Header = () => {
     return (
         <div>
 
-<div className="navbar bg-base-100 h-28 mb-4 ">
+<div className="navbar bg-cyan-100 h-28 mb-4 ">
 
 
   <div className="navbar-start">
