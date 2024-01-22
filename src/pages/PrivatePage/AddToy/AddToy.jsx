@@ -3,12 +3,30 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const AddToy = () => {
  
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
+
+   const handleAddToy = (event) =>{
+    event.preventDefault();
+    const name= event.target.name.value;
+    const quantity= event.target.quantity.value;
+    const sellerName= event.target.sellerName.value;
+    const price= event.target.price.value;
+    const sellerEmail= event.target.sellerEmail.value;
+    const details= event.target.details.value;
+    const photo= event.target.photo.value;
+    const ratings=event.target.ratings.value;
+    const subCategory= event.target.subCategory.value;
+
+    console.log(name,quantity,sellerName,price,sellerEmail,details,photo,ratings,subCategory)
+
+
+
+   }
 
     return (
         <div>
-            <h2 className='text-center text-3xl' >Add Your Toys</h2>
-            <form  >
+            <h2 className='text-center text-3xl mb-4 ' >Add Your Toys</h2>
+            <form onSubmit={handleAddToy} >
     {/* form name and quantity row */}
        <div className="md:flex">
 
@@ -48,7 +66,7 @@ const AddToy = () => {
        
        <label className="input-group" >
          {/* <span>Name</span> */}
-         <input type="text" value={user?.displayName}  className="input input-bordered w-full " />
+         <input type="text" placeholder="seller Name" name="sellerName" defaultValue={user?.displayName}  className="input input-bordered w-full " />
        </label>
 
      </div>
@@ -78,20 +96,22 @@ const AddToy = () => {
   
   <label className="input-group" >
     {/* <span>Name</span> */}
-    <input type="text" value={user?.email}  className="input input-bordered w-full " />
+    <input type="text" placeholder='Seller Email' name='sellerEmail'  defaultValue={user?.email}  className="input input-bordered w-full " />
   </label>
 
 </div>
 
 <div className="form-control md:w-1/2 ml-4"  >
    <label className="label">
-  <span className="label-text" > Price </span>
+  <span className="label-text" > Sub Category </span>
    </label>
   
-  <label className="input-group" >
-    {/* <span>Name</span> */}
-    <input type="text" placeholder="Price" name='price' className="input input-bordered w-full " />
-  </label>
+   <select name="subCategory" className="select select-primary w-full max-w-xs">
+  <option disabled selected>Select Sub Category</option>
+  <option value='cricketToy' >Cricket Toy</option>
+  <option value='footballToy' >Football Toy</option>
+  <option value='hockeyToy' >Hockey Toy</option>
+</select>
 
 </div>
 
