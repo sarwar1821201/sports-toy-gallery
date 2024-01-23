@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SingleToy = ({singleToy}) => {
 
-     console.log(singleToy)
+   //  console.log(singleToy)
      const { _id, name,photo,price,ratings} = singleToy
 
     return (
