@@ -25,6 +25,7 @@ const MyToy = () => {
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
+    
     <thead>
       <tr>
         <th>
@@ -32,12 +33,15 @@ const MyToy = () => {
             <input type="checkbox" className="checkbox" />
           </label>
         </th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th></th>
+        <th>Image</th>
+        <th>Seller Email</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Details</th>
+        <th>Status</th>
       </tr>
     </thead>
+
     <tbody>
       
       {
