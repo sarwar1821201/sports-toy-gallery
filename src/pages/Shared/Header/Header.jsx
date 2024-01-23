@@ -24,6 +24,12 @@ const Header = () => {
         >
           Home
         </NavLink></li>
+         <li> <NavLink
+         to='/allToy'
+         className={({ isActive }) => (isActive ? 'active' : 'default')}
+       >
+         All Toy
+       </NavLink> </li>
    <li> <NavLink
           to='/blog'
           className={({ isActive }) => (isActive ? 'active' : 'default')}
