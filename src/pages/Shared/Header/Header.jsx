@@ -36,13 +36,26 @@ const Header = () => {
         >
           Blog
         </NavLink> </li>
+   
+       {
+          user &&  <li> <NavLink
+          to='/myToy'
+          className={({ isActive }) => (isActive ? 'active' : 'default')}
+        >
+          My Toys
+        </NavLink> </li>
+       }
+
         {
-          user &&   <li> <NavLink
+          user &&  
+          
+          <li> <NavLink
           to='/addToy'
           className={({ isActive }) => (isActive ? 'active' : 'default')}
         >
           Add Toy
         </NavLink> </li>
+       
         }
    {/* {
      user?.email ? <>  
