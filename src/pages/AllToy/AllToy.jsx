@@ -1,11 +1,14 @@
    import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleToy from '../SingleToy/SingleToy';
+import useTitle from '../../hooks/useTitle';
+
    
    const AllToy = () => {
 
     const allToys = useLoaderData();
    // console.log(allToys)
+    useTitle('AllToys')
 
     return (
         <div>

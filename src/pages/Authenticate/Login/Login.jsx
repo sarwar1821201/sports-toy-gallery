@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
 
 
 const Login = () => {
@@ -9,7 +10,9 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState ('');
     const [error,setError] = useState('');
-const {signIn, signInWithGoogle}= useContext(AuthContext)
+const {signIn, signInWithGoogle}= useContext(AuthContext);
+ 
+useTitle('login')
   
 const location= useLocation();
 const navigate= useNavigate();
@@ -71,7 +74,7 @@ const from= location.state?.from?.pathname || '/';
 
     return (
         <div>
-            <h2>Please Login</h2>
+            
             <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col">
     <div className="text-center ">

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
 
@@ -9,6 +10,7 @@ const Register = () => {
   const [show, setShow] = useState(false);
 
   const {createUser, userProfileUpdate } = useContext(AuthContext)
+   useTitle('register')
 
   const handleSignUp= (event)=>{
     event.preventDefault();
@@ -51,7 +53,7 @@ const Register = () => {
 
     return (
         <div>
-            <h2>Please Register</h2>
+            
             <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col ">
     <div className="text-center ">
