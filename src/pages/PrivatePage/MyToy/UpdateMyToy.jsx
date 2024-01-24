@@ -7,13 +7,26 @@ const UpdateMyToy = () => {
      console.log(updateToyPage)
      const { _id, name,photo,price,ratings,sellerName,sellerEmail,quantity,details} = updateToyPage;
 
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        const name= event.target.name.value;
+        const quantity= event.target.quantity.value;
+        const sellerName= event.target.sellerName.value;
+        const price= event.target.price.value;
+        const sellerEmail= event.target.sellerEmail.value;
+        const details= event.target.details.value;
+        const ratings=event.target.ratings.value;
+        
+    
+        console.log(name,quantity,sellerName,price,sellerEmail,details,ratings)
+    }
 
 
     return (
         <div>
             <h2 className='text-center text-3xl mt-3 mb-3'  >Update our {name}'s Toy </h2>
 
-            <form  >
+            <form onSubmit={handleUpdate} >
     {/* form name and quantity row */}
        <div className="md:flex">
 
@@ -83,7 +96,7 @@ const UpdateMyToy = () => {
   
   <label className="input-group" >
     {/* <span>Name</span> */}
-    <input type="text" placeholder="ratings" name="ratings" className="input input-bordered w-full " />
+    <input type="text" placeholder="ratings" name="ratings" defaultValue={ratings} className="input input-bordered w-full " />
   </label>
 
 </div>
@@ -95,7 +108,7 @@ const UpdateMyToy = () => {
   
   <label className="input-group" >
     {/* <span>Name</span> */}
-    <input type="text" placeholder="Details" name='details' className="input input-bordered w-full " />
+    <input type="text" placeholder="Details" name='details' defaultValue={details} className="input input-bordered w-full " />
   </label>
 
 </div>
