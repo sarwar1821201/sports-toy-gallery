@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateMyToy = () => {
 
@@ -19,6 +20,39 @@ const UpdateMyToy = () => {
         
     
         console.log(name,quantity,sellerName,price,sellerEmail,details,ratings)
+        const updateToy ={
+            toyName:name,
+            toyQuantity:quantity,
+            toySellerName:sellerName,
+            toySellerEmail:sellerEmail ,
+            toyDetails:details,
+            toyPrice:price,
+            toyRatings:ratings
+        }
+        console.log(updateToy);
+
+        fetch(`http://localhost:5000/updateSingleToy/${_id}`, {
+
+        method: 'PUT',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify(updateToy)
+    })
+    .then(res=> res.json() )
+    .then(data =>{
+        console.log(data)
+        if(data.modifiedCount>0){
+            Swal.fire({
+                title: 'Success!',
+                text: 'Toy Updated Successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+              event.target.reset();
+        }
+    } )
+
     }
 
 
