@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import MyToyRow from './MyToyRow';
+import Swal from 'sweetalert2';
 
 const MyToy = () => {
    const {user} = useContext(AuthContext);
@@ -17,6 +18,45 @@ const MyToy = () => {
      } )
 
    } ,[url] )
+
+    const handleDelete=(_id) => {
+        console.log('delete tomake kore dilam' , (_id) )
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+            
+              console.log('delete confirm')
+             
+              fetch(`http://localhost:5000/deleteToyItem/${_id}`, {
+                method: 'DELETE'
+              }  )
+              .then(  res=> res.json() )
+              .then(data=> {
+                console.log(data)
+                if(data.deletedCount >0 ){
+                     Swal.fire({
+                title: "Deleted!",
+                text: "Your Toy Item has been deleted.",
+                icon: "success"
+              });
+                  const remaining = bookings.filter ( bo => bo._id !== ! _id )
+                  setBookings(remaining)
+                }
+              })
+  
+            }
+          });
+
+
+    }
 
     return (
         <div>
@@ -48,6 +88,7 @@ const MyToy = () => {
          bookings.map ( (booking ) => <MyToyRow  
            key={booking._id}
            booking={booking}
+           handleDelete={handleDelete}
          > 
 
 
