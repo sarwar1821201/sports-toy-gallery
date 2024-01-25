@@ -9,7 +9,7 @@ const MyToy = () => {
 // const myToys = useLoaderData()
   const [bookings, setBookings ] = useState([])
     
-  const url= `http://localhost:5000/getSomeToy?email=${user.email}` ;
+  const url= `https://sports-toy-server.vercel.app/getSomeToy?email=${user.email}` ;
    useEffect( ()=> {
      fetch(url)
      .then(res=> res.json() )
@@ -35,7 +35,7 @@ const MyToy = () => {
             
               console.log('delete confirm')
              
-              fetch(`http://localhost:5000/deleteToyItem/${_id}`, {
+              fetch(`https://sports-toy-server.vercel.app/deleteToyItem/${_id}`, {
                 method: 'DELETE'
               }  )
               .then(  res=> res.json() )
